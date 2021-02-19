@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using ContactsApp;
 
-namespace ContactsAppUI
+namespace ContactsApp
 {
     static class Program
     {
