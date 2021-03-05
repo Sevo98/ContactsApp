@@ -9,7 +9,6 @@ namespace ContactsAppUI
 {
     static class Program
     {
-        //коммент
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
