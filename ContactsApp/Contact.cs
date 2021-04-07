@@ -13,10 +13,7 @@ namespace ContactsApp
 
         public PhoneNumber PhoneNumber
         {
-            get
-            {
-                return _phoneNumber;
-            }
+            get { return _phoneNumber; }
 
             set
             {
@@ -34,26 +31,22 @@ namespace ContactsApp
 
         public string Surname
         {
-            get
-            {
-                return _surname;
-            }
+            get { return _surname; }
 
             set
             {
                 if (Surname.Length > 50)
                 {
-                    throw new ArgumentException("Фамилия не может содержать больше 500 символов!");
+                    throw new ArgumentException("Фамилия не может содержать больше 50 символов!");
                 }
+
+                Surname = Surname.ToUpper()[0] + Surname.Substring(1);
             }
         }
 
         public string Name
         {
-            get
-            {
-                return _name;
-            }
+            get { return _name; }
 
             set
             {
@@ -61,15 +54,14 @@ namespace ContactsApp
                 {
                     throw new ArgumentException("Имя не может содержать больше 50 символов!");
                 }
+
+                Name = Name.ToUpper()[0] + Name.Substring(1);
             }
         }
 
         public string email
         {
-            get
-            {
-                return _email;
-            }
+            get { return _email; }
 
             set
             {
@@ -82,10 +74,7 @@ namespace ContactsApp
 
         public string VKID
         {
-            get
-            {
-                return _vkID;
-            }
+            get { return _vkID; }
 
             set
             {
@@ -98,14 +87,11 @@ namespace ContactsApp
 
         public DateTime Birthday
         {
-            get
-            {
-                return _birthday;
-            }
+            get { return _birthday; }
 
             set
             {
-                if (Birthday.Year > 1900)
+                if (Birthday.Year < 1900)
                 {
                     throw new ArgumentException("Год рождения не может быть меньше 1900 года!");
                 }
