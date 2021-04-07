@@ -4,45 +4,15 @@ namespace ContactsApp
 {
     public class Contact : ICloneable
     {
-        private PhoneNumber _phoneNumber;
         private string _surname;
         private string _name;
         private string _email;
         private string _vkID;
         private DateTime _birthday;
 
-        Contact()
-        {
 
-        }
+        public PhoneNumber PhoneNumber { get; set; }
 
-        Contact(PhoneNumber phoneNumber, string surname, string name, string email, string vkId, DateTime birthday)
-        {
-            PhoneNumber = phoneNumber;
-            Surname = name;
-            Name = name;
-            Email = email;
-            VKID = vkId;
-            Birthday = birthday;
-        }
-
-        public PhoneNumber PhoneNumber
-        {
-            get { return _phoneNumber; }
-
-            set
-            {
-                if (!PhoneNumber.ToString().StartsWith("7"))
-                {
-                    throw new ArgumentException("Номер должен начинаться с 7!");
-                }
-
-                if (PhoneNumber.ToString().Length != 11)
-                {
-                    throw new ArgumentException("Номер должен состоять из 11 цифр!");
-                }
-            }
-        }
 
         public string Surname
         {
@@ -50,10 +20,7 @@ namespace ContactsApp
 
             set
             {
-                if (Surname.Length > 50)
-                {
-                    throw new ArgumentException("Фамилия не может содержать больше 50 символов!");
-                }
+                LengthCheck(Surname, 50);
 
                 Surname = Surname.ToUpper()[0] + Surname.Substring(1);
             }
@@ -65,10 +32,7 @@ namespace ContactsApp
 
             set
             {
-                if (Name.Length > 50)
-                {
-                    throw new ArgumentException("Имя не может содержать больше 50 символов!");
-                }
+                LengthCheck(Name, 50);
 
                 Name = Name.ToUpper()[0] + Name.Substring(1);
             }
@@ -78,26 +42,14 @@ namespace ContactsApp
         {
             get { return _email; }
 
-            set
-            {
-                if (Name.Length > 50)
-                {
-                    throw new ArgumentException("Email не может содержать больше 50 символов!");
-                }
-            }
+            set { LengthCheck(Email, 50); }
         }
 
         public string VKID
         {
             get { return _vkID; }
 
-            set
-            {
-                if (VKID.Length > 15)
-                {
-                    throw new ArgumentException("VK ID не может содержать больше 15 символов!");
-                }
-            }
+            set { LengthCheck(VKID, 15); }
         }
 
         public DateTime Birthday
@@ -116,6 +68,28 @@ namespace ContactsApp
                     throw new ArgumentException("День рождения не может быть больше сегодняшней даты!");
                 }
             }
+        }
+
+        private void LengthCheck(string strings, int permissibleLength)
+        {
+            if (strings.Length > permissibleLength)
+            {
+                throw new ArgumentException("Переменная не может содержать больше " + permissibleLength + " символов!");
+            }
+        }
+
+        Contact()
+        {
+        }
+
+        Contact(PhoneNumber phoneNumber, string surname, string name, string email, string vkId, DateTime birthday)
+        {
+            PhoneNumber = phoneNumber;
+            Surname = name;
+            Name = name;
+            Email = email;
+            VKID = vkId;
+            Birthday = birthday;
         }
 
         public object Clone()
