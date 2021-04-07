@@ -19,8 +19,16 @@ namespace ContactsApp
             }
         }
 
-        public static void LoadFromFile(string fileName)
+        public static Project LoadFromFile(string fileName)
         {
+            Project project = null;
+            using (StreamReader sr = new StreamReader(_myDocPath + @fileName))
+            using (JsonReader reader = new JsonTextReader(sr))
+            {
+                project = (Project) serializer.Deserialize<Project>(reader);
+            }
+
+            return project;
         }
     }
 }
