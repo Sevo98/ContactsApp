@@ -6,16 +6,22 @@ using System.Threading.Tasks;
 
 namespace ContactsApp
 {
+    /// <summary>
+    /// Класс номера телефона
+    /// </summary>
     public class PhoneNumber
     {
+        /// <summary>
+        /// Номер телефона
+        /// </summary>
         private int _number;
 
+        /// <summary>
+        /// Свойства номера телефона
+        /// </summary>
         public int Number
         {
-            get
-            {
-                return _number;
-            }
+            get { return _number; }
             set
             {
                 if (!Number.ToString().StartsWith("7"))
@@ -27,7 +33,6 @@ namespace ContactsApp
                 {
                     throw new ArgumentException("Номер должен состоять из 11 цифр!");
                 }
-
             }
         }
     }

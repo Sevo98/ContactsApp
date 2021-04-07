@@ -2,18 +2,45 @@
 
 namespace ContactsApp
 {
+    /// <summary>
+    /// Класс контакта
+    /// </summary>
     public class Contact : ICloneable
     {
+        /// <summary>
+        /// Фамилия контакта
+        /// </summary>
         private string _surname;
+
+        /// <summary>
+        /// Имя контакта
+        /// </summary>
         private string _name;
+
+        /// <summary>
+        /// Email контакта
+        /// </summary>
         private string _email;
+
+        /// <summary>
+        /// VK ID контакта
+        /// </summary>
         private string _vkID;
+
+        /// <summary>
+        /// День рождения контакта
+        /// </summary>
         private DateTime _birthday;
 
-
+        /// <summary>
+        /// Номер телефона контакта
+        /// </summary>
         public PhoneNumber PhoneNumber { get; set; }
 
-
+        /// <summary>
+        /// Свойства фамилии контакта вместе с проверкой на длину
+        /// и изменением регистра первого символа
+        /// </summary>
         public string Surname
         {
             get { return _surname; }
@@ -26,6 +53,10 @@ namespace ContactsApp
             }
         }
 
+        /// <summary>
+        /// Свойства имени контакта вместе с проверкой на длину
+        /// и изменением регистра первого символа
+        /// </summary>
         public string Name
         {
             get { return _name; }
@@ -38,6 +69,9 @@ namespace ContactsApp
             }
         }
 
+        /// <summary>
+        /// Свойства Email контакта вместе с проверкой на длину
+        /// </summary>
         public string Email
         {
             get { return _email; }
@@ -45,6 +79,9 @@ namespace ContactsApp
             set { LengthCheck(Email, 50); }
         }
 
+        /// <summary>
+        /// Свойства VK ID контакта вместе с проверкой на длину
+        /// </summary>
         public string VKID
         {
             get { return _vkID; }
@@ -52,6 +89,10 @@ namespace ContactsApp
             set { LengthCheck(VKID, 15); }
         }
 
+        /// <summary>
+        /// Свойство день рождения контакта
+        /// с проверкой на актуальность даты
+        /// </summary>
         public DateTime Birthday
         {
             get { return _birthday; }
@@ -70,6 +111,11 @@ namespace ContactsApp
             }
         }
 
+        /// <summary>
+        /// Проверка длины передаваемой строки на допустимый размер
+        /// </summary>
+        /// <param name="strings">Принимаемая строка</param>
+        /// <param name="permissibleLength">Допустимая длина строки</param>
         private void LengthCheck(string strings, int permissibleLength)
         {
             if (strings.Length > permissibleLength)
@@ -78,10 +124,22 @@ namespace ContactsApp
             }
         }
 
+        /// <summary>
+        /// Пустой конструктор контакта
+        /// </summary>
         Contact()
         {
         }
 
+        /// <summary>
+        /// Конструктор контакта
+        /// </summary>
+        /// <param name="phoneNumber">Инициализация поля _phoneNumber</param>
+        /// <param name="surname">Инициализация поля _surname</param>
+        /// <param name="name">Инициализация поля _name</param>
+        /// <param name="email">Инициализация поля _email</param>
+        /// <param name="vkId">Инициализация поля _vkId</param>
+        /// <param name="birthday">Инициализация поля _birthday</param>
         Contact(PhoneNumber phoneNumber, string surname, string name, string email, string vkId, DateTime birthday)
         {
             PhoneNumber = phoneNumber;
@@ -92,6 +150,10 @@ namespace ContactsApp
             Birthday = birthday;
         }
 
+        /// <summary>
+        /// Копирование объекта
+        /// </summary>
+        /// <returns></returns>
         public object Clone()
         {
             return this.MemberwiseClone();
