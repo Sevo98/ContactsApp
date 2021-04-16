@@ -13,10 +13,10 @@ namespace ContactsApp
         private static JsonSerializer serializer = new JsonSerializer();
 
         /// <summary>
-        /// Путь до папки "Мои документы" пользователя
+        /// Путь до папки "AppData" пользователя
         /// </summary>
-        private static string _myDocPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-
+        public static string _myPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "/ContactsApp";
+        public static DirectoryInfo directoryInfo = new DirectoryInfo(_myPath);
         /// <summary>
         /// Сохранение данных контактов в JSON-файл
         /// </summary>
@@ -24,7 +24,11 @@ namespace ContactsApp
         /// <param name="fileName">Имя сохраняемого файла</param>
         public static void SaveToFile(Project project, string fileName)
         {
-            using (StreamWriter sw = new StreamWriter(_myDocPath + @fileName))
+            if (!directoryInfo.Exists)
+            {
+                directoryInfo.Create();
+            }
+            using (StreamWriter sw = new StreamWriter(_myPath + @fileName))
             using (JsonWriter writer = new JsonTextWriter(sw))
             {
                 serializer.Serialize(writer, project);
@@ -39,8 +43,12 @@ namespace ContactsApp
         /// <returns></returns>
         public static Project LoadFromFile(string fileName)
         {
+            if (!directoryInfo.Exists)
+            {
+                throw new ArgumentException("Отсутствует необходимый путь в программе!");
+            }
             Project project = null;
-            using (StreamReader sr = new StreamReader(_myDocPath + @fileName))
+            using (StreamReader sr = new StreamReader(_myPath + @fileName))
             using (JsonReader reader = new JsonTextReader(sr))
             {
                 project = (Project) serializer.Deserialize<Project>(reader);

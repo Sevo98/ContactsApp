@@ -47,8 +47,7 @@ namespace ContactsApp
 
             set
             {
-                LengthCheck(Surname, 50);
-
+                CheckLength(Surname, 50);
                 Surname = Surname.ToUpper()[0] + Surname.Substring(1);
             }
         }
@@ -63,8 +62,7 @@ namespace ContactsApp
 
             set
             {
-                LengthCheck(Name, 50);
-
+                CheckLength(Name, 50);
                 Name = Name.ToUpper()[0] + Name.Substring(1);
             }
         }
@@ -75,8 +73,7 @@ namespace ContactsApp
         public string Email
         {
             get { return _email; }
-
-            set { LengthCheck(Email, 50); }
+            set { CheckLength(Email, 50); }
         }
 
         /// <summary>
@@ -84,9 +81,14 @@ namespace ContactsApp
         /// </summary>
         public string VKID
         {
-            get { return _vkID; }
-
-            set { LengthCheck(VKID, 15); }
+            get
+            {
+                return _vkID;
+            }
+            set
+            {
+                CheckLength(VKID, 15);
+            }
         }
 
         /// <summary>
@@ -116,19 +118,12 @@ namespace ContactsApp
         /// </summary>
         /// <param name="strings">Принимаемая строка</param>
         /// <param name="permissibleLength">Допустимая длина строки</param>
-        private void LengthCheck(string strings, int permissibleLength)
+        private void CheckLength(string strings, int permissibleLength)
         {
             if (strings.Length > permissibleLength)
             {
                 throw new ArgumentException("Переменная не может содержать больше " + permissibleLength + " символов!");
             }
-        }
-
-        /// <summary>
-        /// Пустой конструктор контакта
-        /// </summary>
-        Contact()
-        {
         }
 
         /// <summary>
