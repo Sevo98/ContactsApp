@@ -125,17 +125,17 @@ namespace ContactsApp
                 throw new ArgumentException("Переменная не может содержать больше " + permissibleLength + " символов!");
             }
         }
-
+        
         /// <summary>
         /// Конструктор контакта
         /// </summary>
-        /// <param name="phoneNumber">Инициализация поля _phoneNumber</param>
-        /// <param name="surname">Инициализация поля _surname</param>
-        /// <param name="name">Инициализация поля _name</param>
-        /// <param name="email">Инициализация поля _email</param>
-        /// <param name="vkId">Инициализация поля _vkId</param>
-        /// <param name="birthday">Инициализация поля _birthday</param>
-        Contact(PhoneNumber phoneNumber, string surname, string name, string email, string vkId, DateTime birthday)
+        /// <param name="phoneNumber">Номер телефона</param>
+        /// <param name="surname">Фамилия</param>
+        /// <param name="name">Имя</param>
+        /// <param name="email">Email</param>
+        /// <param name="vkId">VK ID</param>
+        /// <param name="birthday">День рождения</param>
+        public Contact(PhoneNumber phoneNumber, string surname, string name, string email, string vkId, DateTime birthday)
         {
             PhoneNumber = phoneNumber;
             Surname = name;

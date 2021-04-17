@@ -10,13 +10,19 @@ namespace ContactsApp
     /// </summary>
     public static class ProjectManager
     {
-        private static JsonSerializer serializer = new JsonSerializer();
+        /// <summary>
+        /// Serializer
+        /// </summary>
+        private static readonly JsonSerializer _serializer = new JsonSerializer();
 
         /// <summary>
         /// Путь до папки "AppData" пользователя
         /// </summary>
-        public static string _myPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "/ContactsApp";
+        public static readonly string _myPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) +
+                                                "/Sevostyanov/ContactsApp";
+
         public static DirectoryInfo directoryInfo = new DirectoryInfo(_myPath);
+
         /// <summary>
         /// Сохранение данных контактов в JSON-файл
         /// </summary>
@@ -28,10 +34,11 @@ namespace ContactsApp
             {
                 directoryInfo.Create();
             }
+
             using (StreamWriter sw = new StreamWriter(_myPath + @fileName))
             using (JsonWriter writer = new JsonTextWriter(sw))
             {
-                serializer.Serialize(writer, project);
+                _serializer.Serialize(writer, project);
             }
         }
 
@@ -41,17 +48,29 @@ namespace ContactsApp
         /// </summary>
         /// <param name="fileName">Имя JSON-файла с данными</param>
         /// <returns></returns>
-        public static Project LoadFromFile(string fileName)
+        public static Project LoadFromFile(string path, string fileName)
         {
             if (!directoryInfo.Exists)
             {
-                throw new ArgumentException("Отсутствует необходимый путь в программе!");
+                directoryInfo.Create();
+                return new Project();
             }
+
+            if (!File.Exists(path + fileName))
+            {
+                return new Project();
+            }
+
             Project project = null;
             using (StreamReader sr = new StreamReader(_myPath + @fileName))
             using (JsonReader reader = new JsonTextReader(sr))
             {
-                project = (Project) serializer.Deserialize<Project>(reader);
+                project = (Project) _serializer.Deserialize<Project>(reader);
+            }
+
+            if (project == null)
+            {
+                return new Project();
             }
 
             return project;
