@@ -62,13 +62,20 @@ namespace ContactsApp
             }
 
             Project project = null;
-            using (StreamReader sr = new StreamReader(_myPath + @fileName))
-            using (JsonReader reader = new JsonTextReader(sr))
+            try
             {
-                project = (Project) _serializer.Deserialize<Project>(reader);
-            }
+                using (StreamReader sr = new StreamReader(_myPath + @fileName))
+                using (JsonReader reader = new JsonTextReader(sr))
+                {
+                    project = (Project)_serializer.Deserialize<Project>(reader);
+                }
 
-            if (project == null)
+                if (project == null)
+                {
+                    return new Project();
+                }
+            }
+            catch (Exception e)
             {
                 return new Project();
             }

@@ -105,7 +105,7 @@ namespace ContactsApp
                 {
                     throw new ArgumentException("Год рождения не может быть меньше 1900 года!");
                 }
-
+                //TODO: Исправить на null
                 if (Birthday > DateTime.Today)
                 {
                     throw new ArgumentException("День рождения не может быть больше сегодняшней даты!");
