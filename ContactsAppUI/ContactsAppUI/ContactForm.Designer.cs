@@ -121,10 +121,13 @@ namespace ContactsAppUI
             // 
             this.birthdayDateTimePicker.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.birthdayDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.birthdayDateTimePicker.Location = new System.Drawing.Point(70, 58);
+            this.birthdayDateTimePicker.MinDate = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
             this.birthdayDateTimePicker.Name = "birthdayDateTimePicker";
-            this.birthdayDateTimePicker.Size = new System.Drawing.Size(139, 20);
+            this.birthdayDateTimePicker.Size = new System.Drawing.Size(92, 20);
             this.birthdayDateTimePicker.TabIndex = 21;
+            this.birthdayDateTimePicker.Value = new System.DateTime(2021, 6, 1, 0, 0, 0, 0);
             // 
             // phoneTextBox
             // 
