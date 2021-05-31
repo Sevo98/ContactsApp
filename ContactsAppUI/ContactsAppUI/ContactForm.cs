@@ -29,5 +29,20 @@ namespace ContactsAppUI
                 
             }
     }
+
+        private void cancelButton_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("Do you want close this form? Data will not save.", "Warning", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                DialogResult = DialogResult.Cancel;
+                this.Close();
+            }
+        }
+
+        private void okButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
