@@ -14,12 +14,12 @@ namespace ContactsApp
         /// <summary>
         /// Номер телефона
         /// </summary>
-        private int _number;
+        private long _number;
 
         /// <summary>
         /// Свойства номера телефона
         /// </summary>
-        public int Number
+        public long Number
         {
             get { return _number; }
             set

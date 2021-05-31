@@ -26,7 +26,8 @@ namespace ContactsAppUI
 
             set
             {
-                
+                _contact = new Contact(value.PhoneNumber, value.Surname, value.Name, value.Email, value.VKID,
+                    value.Birthday);
             }
     }
 
@@ -53,20 +54,20 @@ namespace ContactsAppUI
                 _contact.Birthday = DateTime.Now;
                 birthdayDateTimePicker.Value = DateTime.Now;
             }
-            else
-            {
-                surnameBox.Text = _contact.Surname;
-                nameBox.Text = _contact.Name;
-                birthdayDateTimePicker.Value = _contact.Birthday;
-                phoneBox.Text = _contact.PhoneNumber.ToString();
-                emailBox.Text = _contact.Email;
-                vkBox.Text = _contact.VKID;
-            }
+            //else
+            //{
+            //    surnameBox.Text = _contact.Surname;
+            //    nameBox.Text = _contact.Name;
+            //    birthdayDateTimePicker.Value = _contact.Birthday;
+            //    phoneBox.Text = _contact.PhoneNumber.ToString();
+            //    emailBox.Text = _contact.Email;
+            //    vkBox.Text = _contact.VKID;
+            //}
         }
 
         private void surnameBox_TextChanged(object sender, EventArgs e)
         {
-            surnameBox.BackColor = Color.AliceBlue;
+            surnameBox.BackColor = Color.LightGreen;
             try
             {
                 _contact.Surname = surnameBox.Text;
@@ -80,7 +81,7 @@ namespace ContactsAppUI
 
         private void nameBox_TextChanged(object sender, EventArgs e)
         {
-            nameBox.BackColor = Color.AliceBlue;
+            nameBox.BackColor = Color.LightGreen;
             try
             {
                 _contact.Name = nameBox.Text;
@@ -94,7 +95,7 @@ namespace ContactsAppUI
 
         private void birthdayDateTimePicker_ValueChanged(object sender, EventArgs e)
         {
-            birthdayDateTimePicker.BackColor = Color.AliceBlue;
+            birthdayDateTimePicker.BackColor = Color.LightGreen;
             try
             {
                 _contact.Birthday = birthdayDateTimePicker.Value;
@@ -109,13 +110,13 @@ namespace ContactsAppUI
 
         private void phoneTextBox_TextChanged(object sender, EventArgs e)
         {
-            phoneBox.BackColor = Color.AliceBlue;
+            phoneBox.BackColor = Color.LightGreen;
             if ((phoneBox.Text.All(char.IsDigit)) && (phoneBox.Text != ""))
             {
                 try
                 {
                     PhoneNumber value = new PhoneNumber();
-                    value.Number = int.Parse(phoneBox.Text);
+                    value.Number = long.Parse(phoneBox.Text);
                     _contact.PhoneNumber = value;
                 }
                 catch (ArgumentException exception)
@@ -132,7 +133,7 @@ namespace ContactsAppUI
 
         private void emailTextBox_TextChanged(object sender, EventArgs e)
         {
-            emailBox.BackColor = Color.AliceBlue;
+            emailBox.BackColor = Color.LightGreen;
             try
             {
                 _contact.Email = emailBox.Text;
@@ -146,7 +147,7 @@ namespace ContactsAppUI
 
         private void vkTextBox_TextChanged(object sender, EventArgs e)
         {
-            vkBox.BackColor = Color.AliceBlue;
+            vkBox.BackColor = Color.LightGreen;
             try
             {
                 _contact.VKID = vkBox.Text;

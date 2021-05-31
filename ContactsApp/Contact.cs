@@ -47,8 +47,8 @@ namespace ContactsApp
 
             set
             {
-                CheckLength(Surname, 50);
-                Surname = Surname.ToUpper()[0] + Surname.Substring(1);
+                CheckLength(value, 50);
+                _surname = value.ToUpper()[0] + value.Substring(1);
             }
         }
 
@@ -62,8 +62,8 @@ namespace ContactsApp
 
             set
             {
-                CheckLength(Name, 50);
-                Name = Name.ToUpper()[0] + Name.Substring(1);
+                CheckLength(value, 50);
+                _name = value.ToUpper()[0] + value.Substring(1);
             }
         }
 
@@ -73,7 +73,7 @@ namespace ContactsApp
         public string Email
         {
             get { return _email; }
-            set { CheckLength(Email, 50); }
+            set { CheckLength(value, 50); }
         }
 
         /// <summary>
@@ -87,7 +87,7 @@ namespace ContactsApp
             }
             set
             {
-                CheckLength(VKID, 15);
+                CheckLength(value, 15);
             }
         }
 
@@ -101,7 +101,7 @@ namespace ContactsApp
 
             set
             {
-                if (Birthday.Year < 1900)
+                if (value.Year < 1900)
                 {
                     throw new ArgumentException("Год рождения не может быть меньше 1900 года!");
                 }
