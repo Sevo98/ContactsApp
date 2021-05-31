@@ -52,7 +52,7 @@ namespace ContactsAppUI
         private void openAddEditForm(bool edited)
         {
             ContactForm contactForm = new ContactForm();
-            contactForm.Show();
+            contactForm.ShowDialog();
 
             if (edited == false)
             {
