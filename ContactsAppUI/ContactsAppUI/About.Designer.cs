@@ -112,7 +112,7 @@ namespace ContactsAppUI
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.versionLabel.AutoSize = true;
-            this.versionLabel.Location = new System.Drawing.Point(125, 44);
+            this.versionLabel.Location = new System.Drawing.Point(115, 44);
             this.versionLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.versionLabel.Name = "versionLabel";
             this.versionLabel.Size = new System.Drawing.Size(43, 13);
@@ -125,7 +125,7 @@ namespace ContactsAppUI
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.authorLabel.AutoSize = true;
-            this.authorLabel.Location = new System.Drawing.Point(72, 70);
+            this.authorLabel.Location = new System.Drawing.Point(72, 69);
             this.authorLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.authorLabel.Name = "authorLabel";
             this.authorLabel.Size = new System.Drawing.Size(127, 13);
@@ -139,7 +139,7 @@ namespace ContactsAppUI
             | System.Windows.Forms.AnchorStyles.Right)));
             this.nameProgramLabel.AutoSize = true;
             this.nameProgramLabel.Font = new System.Drawing.Font("Microsoft YaHei UI", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.nameProgramLabel.Location = new System.Drawing.Point(57, 8);
+            this.nameProgramLabel.Location = new System.Drawing.Point(39, 8);
             this.nameProgramLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.nameProgramLabel.Name = "nameProgramLabel";
             this.nameProgramLabel.Size = new System.Drawing.Size(190, 36);
@@ -150,7 +150,7 @@ namespace ContactsAppUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(277, 214);
+            this.ClientSize = new System.Drawing.Size(274, 211);
             this.Controls.Add(this.linkOnGitLabel);
             this.Controls.Add(this.linkOnMailLabel);
             this.Controls.Add(this.githubLabel);
@@ -159,7 +159,10 @@ namespace ContactsAppUI
             this.Controls.Add(this.versionLabel);
             this.Controls.Add(this.authorLabel);
             this.Controls.Add(this.nameProgramLabel);
+            this.MaximumSize = new System.Drawing.Size(290, 250);
+            this.MinimumSize = new System.Drawing.Size(290, 250);
             this.Name = "About";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "About";
             this.ResumeLayout(false);
             this.PerformLayout();
