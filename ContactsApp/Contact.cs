@@ -125,6 +125,11 @@ namespace ContactsApp
                 throw new ArgumentException("Переменная не может содержать больше " + permissibleLength + " символов!");
             }
         }
+
+        public Contact()
+        {
+
+        }
         
         /// <summary>
         /// Конструктор контакта

@@ -44,5 +44,118 @@ namespace ContactsAppUI
         {
 
         }
+
+        private void ContactForm_Load(object sender, EventArgs e)
+        {
+            if (_contact == null)
+            {
+                _contact = new Contact();
+                _contact.Birthday = DateTime.Now;
+                birthdayDateTimePicker.Value = DateTime.Now;
+            }
+            else
+            {
+                surnameBox.Text = _contact.Surname;
+                nameBox.Text = _contact.Name;
+                birthdayDateTimePicker.Value = _contact.Birthday;
+                phoneBox.Text = _contact.PhoneNumber.ToString();
+                emailBox.Text = _contact.Email;
+                vkBox.Text = _contact.VKID;
+            }
+        }
+
+        private void surnameBox_TextChanged(object sender, EventArgs e)
+        {
+            surnameBox.BackColor = Color.AliceBlue;
+            try
+            {
+                _contact.Surname = surnameBox.Text;
+            }
+            catch (ArgumentException exception)
+            {
+                Console.WriteLine(exception);
+                surnameBox.BackColor = Color.Brown;
+            }
+        }
+
+        private void nameBox_TextChanged(object sender, EventArgs e)
+        {
+            nameBox.BackColor = Color.AliceBlue;
+            try
+            {
+                _contact.Name = nameBox.Text;
+            }
+            catch (ArgumentException exception)
+            {
+                Console.WriteLine(exception);
+                nameBox.BackColor = Color.Brown;
+            }
+        }
+
+        private void birthdayDateTimePicker_ValueChanged(object sender, EventArgs e)
+        {
+            birthdayDateTimePicker.BackColor = Color.AliceBlue;
+            try
+            {
+                _contact.Birthday = birthdayDateTimePicker.Value;
+            }
+            catch (ArgumentException exception)
+            {
+                Console.WriteLine(exception);
+                birthdayDateTimePicker.BackColor = Color.Brown;
+                birthdayDateTimePicker.Invalidate();
+            }
+        }
+
+        private void phoneTextBox_TextChanged(object sender, EventArgs e)
+        {
+            phoneBox.BackColor = Color.AliceBlue;
+            if ((phoneBox.Text.All(char.IsDigit)) && (phoneBox.Text != ""))
+            {
+                try
+                {
+                    PhoneNumber value = new PhoneNumber();
+                    value.Number = int.Parse(phoneBox.Text);
+                    _contact.PhoneNumber = value;
+                }
+                catch (ArgumentException exception)
+                {
+                    Console.WriteLine(exception);
+                    phoneBox.BackColor = Color.Brown;
+                }
+            }
+            else
+            {
+                phoneBox.BackColor = Color.Brown;
+            }
+        }
+
+        private void emailTextBox_TextChanged(object sender, EventArgs e)
+        {
+            emailBox.BackColor = Color.AliceBlue;
+            try
+            {
+                _contact.Email = emailBox.Text;
+            }
+            catch (ArgumentException exception)
+            {
+                Console.WriteLine(exception);
+                emailBox.BackColor = Color.Brown;
+            }
+        }
+
+        private void vkTextBox_TextChanged(object sender, EventArgs e)
+        {
+            vkBox.BackColor = Color.AliceBlue;
+            try
+            {
+                _contact.VKID = vkBox.Text;
+            }
+            catch (ArgumentException exception)
+            {
+                Console.WriteLine(exception);
+                vkBox.BackColor = Color.Brown;
+            }
+        }
     }
 }
