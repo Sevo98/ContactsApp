@@ -26,10 +26,10 @@ namespace ContactsAppUI
 
             set
             {
-                _contact = new Contact(value.PhoneNumber, value.Surname, value.Name, value.Email, value.VKID,
-                    value.Birthday);
+                _contact = new Contact(value.PhoneNumber, value.Surname, 
+                    value.Name, value.Email, value.VKID, value.Birthday);
             }
-    }
+        }
 
         private void cancelButton_Click(object sender, EventArgs e)
         {
@@ -43,26 +43,64 @@ namespace ContactsAppUI
 
         private void okButton_Click(object sender, EventArgs e)
         {
+            string inputError = "Error list:\n";
 
+            if ((surnameBox.BackColor == Color.Brown) || (surnameBox.Text == ""))
+            {
+                inputError = inputError + "incorrect surname.\n";
+            }
+
+            if ((nameBox.BackColor == Color.Brown) || (nameBox.Text == ""))
+            {
+                inputError = inputError + "incorrect name.\n";
+            }
+
+            if (birthdayDateTimePicker.BackColor == Color.Brown)
+            {
+                inputError = inputError + "incorrect date.\n";
+            }
+
+            if ((phoneBox.BackColor == Color.Brown) || (phoneBox.Text == ""))
+            {
+                inputError = inputError + "incorrect phone.\n";
+            }
+
+            if ((emailBox.BackColor == Color.Brown) || (emailBox.Text == ""))
+            {
+                inputError = inputError + "incorrect e-mail.\n";
+            }
+
+            if ((vkBox.BackColor == Color.Brown) || (vkBox.Text == ""))
+            {
+                inputError = inputError + "incorrect vk.com.";
+            }
+
+            if (inputError != "Error list:\n")
+            {
+                MessageBox.Show(inputError, "Error");
+                return;
+            }
+            DialogResult = DialogResult.OK;
+            this.Close();
         }
 
         private void ContactForm_Load(object sender, EventArgs e)
         {
-            if (_contact == null)
+            if (_contact != null)
+            {
+                surnameBox.Text = _contact.Surname;
+                nameBox.Text = _contact.Name;
+                birthdayDateTimePicker.Value = _contact.Birthday;
+                phoneBox.Text = _contact.PhoneNumber.ToString();
+                emailBox.Text = _contact.Email;
+                vkBox.Text = _contact.VKID;
+            }
+            else
             {
                 _contact = new Contact();
                 _contact.Birthday = DateTime.Now;
                 birthdayDateTimePicker.Value = DateTime.Now;
             }
-            //else
-            //{
-            //    surnameBox.Text = _contact.Surname;
-            //    nameBox.Text = _contact.Name;
-            //    birthdayDateTimePicker.Value = _contact.Birthday;
-            //    phoneBox.Text = _contact.PhoneNumber.ToString();
-            //    emailBox.Text = _contact.Email;
-            //    vkBox.Text = _contact.VKID;
-            //}
         }
 
         private void surnameBox_TextChanged(object sender, EventArgs e)

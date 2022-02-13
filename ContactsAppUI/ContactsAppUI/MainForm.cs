@@ -30,7 +30,27 @@ namespace ContactsAppUI
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+            _contacts = _project.Contacts;
+            InsertToListBox();
+            if (_contacts.Count > 0)
+            {
+                surnameListBox.SelectedIndex = 0;
+                InputInformationOfContact(0);
+            }
         }
+
+        private void InsertToListBox()
+        {
+            _contacts = new List<Contact>();
+            _contacts = _project.SearchContactByString(findBox.Text);
+            _contacts = _contacts.OrderBy(t => t.Surname).ToList();
+
+            for (int index = 0; index < _contacts.Count; index++)
+            {
+                surnameListBox.Items.Insert(index, _contacts[index].Surname);
+            }
+        }
+
 
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -51,19 +71,25 @@ namespace ContactsAppUI
         /// <param name="edited"></param>
         private void openAddEditForm(bool edited)
         {
-            ContactForm contactForm = new ContactForm();
-            contactForm.ShowDialog();
-
             if (edited == false)
             {
-                _project.Contacts.Add(contactForm.Contact);
-                ProjectManager.SaveToFile(_project, ProjectManager.FileName);
-                _contacts = new List<Contact>();
+                ContactForm contactForm = new ContactForm();
+                contactForm.ShowDialog();
 
+                if (contactForm.DialogResult == DialogResult.OK)
+                {
+                    _project.Contacts.Add(contactForm.Contact);
+                    ProjectManager.SaveToFile(_project, ProjectManager.FileName);
+                    _contacts = new List<Contact>();
+
+                }
             }
-            else
+
+            if (edited == true)
             {
+                
             }
+            
         }
 
         private void editContactToolStripMenuItem_Click(object sender, EventArgs e)
@@ -79,6 +105,43 @@ namespace ContactsAppUI
         private void editButton_Click(object sender, EventArgs e)
         {
             openAddEditForm(true);
+        }
+
+        private void nameBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void surnameBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void phoneTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        /// <summary>
+        /// Выводит информацию о контакте по индексу
+        /// </summary>
+        /// <param name="index">индекс контакта</param>
+        private void InputInformationOfContact(int index)
+        {
+            if (index == -1) return;
+            var contact = _contacts[index];
+            surnameBox.Text = contact.Surname;
+            nameBox.Text = contact.Name;
+            birthdayDateTimePicker.Value = contact.Birthday;
+            phoneTextBox.Text = contact.PhoneNumber.Number.ToString();
+            vkTextBox.Text = contact.VKID;
+            emailTextBox.Text = contact.Email;
+        }
+
+        private void surnameListBox_Click(object sender, EventArgs e)
+        {
+            int index = surnameListBox.SelectedIndex;
+            InputInformationOfContact(index);
         }
     }
 }

@@ -137,6 +137,7 @@ namespace ContactsAppUI
             this.phoneBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.phoneBox.Location = new System.Drawing.Point(70, 84);
+            this.phoneBox.MaxLength = 11;
             this.phoneBox.Name = "phoneBox";
             this.phoneBox.Size = new System.Drawing.Size(352, 20);
             this.phoneBox.TabIndex = 22;

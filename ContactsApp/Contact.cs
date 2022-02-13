@@ -35,7 +35,7 @@ namespace ContactsApp
         /// <summary>
         /// Номер телефона контакта
         /// </summary>
-        public PhoneNumber PhoneNumber { get; set; }
+        public PhoneNumber PhoneNumber { get; set; } = new PhoneNumber();
 
         /// <summary>
         /// Свойства фамилии контакта вместе с проверкой на длину
@@ -73,7 +73,11 @@ namespace ContactsApp
         public string Email
         {
             get { return _email; }
-            set { CheckLength(value, 50); }
+            set
+            {
+                CheckLength(value, 50);
+                _email = value;
+            }
         }
 
         /// <summary>
@@ -88,6 +92,7 @@ namespace ContactsApp
             set
             {
                 CheckLength(value, 15);
+                _vkID = value;
             }
         }
 
@@ -106,10 +111,12 @@ namespace ContactsApp
                     throw new ArgumentException("Год рождения не может быть меньше 1900 года!");
                 }
                 //TODO: Исправить на null
-                if (Birthday > DateTime.Today)
-                {
-                    throw new ArgumentException("День рождения не может быть больше сегодняшней даты!");
-                }
+                //if (Birthday > DateTime.Today)
+                //{
+                //    throw new ArgumentException("День рождения не может быть больше сегодняшней даты!");
+                //}
+
+                _birthday = value;
             }
         }
 

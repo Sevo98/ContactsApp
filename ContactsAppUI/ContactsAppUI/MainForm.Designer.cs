@@ -62,11 +62,12 @@ namespace ContactsAppUI
             // 
             // editButton
             // 
-            this.editButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.editButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.editButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.editButton.Image = global::ContactsAppUI.Properties.Resources.ASX_Edit_grey_16x;
-            this.editButton.Location = new System.Drawing.Point(34, 331);
+            this.editButton.Location = new System.Drawing.Point(83, 331);
             this.editButton.Name = "editButton";
-            this.editButton.Size = new System.Drawing.Size(29, 23);
+            this.editButton.Size = new System.Drawing.Size(24, 23);
             this.editButton.TabIndex = 1;
             this.editButton.UseVisualStyleBackColor = true;
             this.editButton.Click += new System.EventHandler(this.editButton_Click);
@@ -74,6 +75,8 @@ namespace ContactsAppUI
             // addButton
             // 
             this.addButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.addButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.addButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.addButton.Image = global::ContactsAppUI.Properties.Resources.AddUser_16x;
             this.addButton.Location = new System.Drawing.Point(4, 331);
             this.addButton.Name = "addButton";
@@ -85,8 +88,10 @@ namespace ContactsAppUI
             // deleteUser
             // 
             this.deleteUser.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.deleteUser.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.deleteUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.deleteUser.Image = global::ContactsAppUI.Properties.Resources.DeleteUser_16x;
-            this.deleteUser.Location = new System.Drawing.Point(69, 331);
+            this.deleteUser.Location = new System.Drawing.Point(172, 331);
             this.deleteUser.Name = "deleteUser";
             this.deleteUser.Size = new System.Drawing.Size(24, 23);
             this.deleteUser.TabIndex = 2;
@@ -167,6 +172,7 @@ namespace ContactsAppUI
             // findLabel
             // 
             this.findLabel.AutoSize = true;
+            this.findLabel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.findLabel.Location = new System.Drawing.Point(1, 27);
             this.findLabel.Name = "findLabel";
             this.findLabel.Size = new System.Drawing.Size(30, 13);
@@ -175,6 +181,7 @@ namespace ContactsAppUI
             // 
             // findBox
             // 
+            this.findBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.findBox.Location = new System.Drawing.Point(34, 24);
             this.findBox.Name = "findBox";
             this.findBox.Size = new System.Drawing.Size(162, 20);
@@ -184,15 +191,18 @@ namespace ContactsAppUI
             // 
             this.surnameListBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
+            this.surnameListBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.surnameListBox.FormattingEnabled = true;
             this.surnameListBox.Location = new System.Drawing.Point(4, 47);
             this.surnameListBox.Name = "surnameListBox";
-            this.surnameListBox.Size = new System.Drawing.Size(192, 277);
+            this.surnameListBox.Size = new System.Drawing.Size(192, 275);
             this.surnameListBox.TabIndex = 6;
+            this.surnameListBox.Click += new System.EventHandler(this.surnameListBox_Click);
             // 
             // surnameLabel
             // 
             this.surnameLabel.AutoSize = true;
+            this.surnameLabel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.surnameLabel.Location = new System.Drawing.Point(213, 50);
             this.surnameLabel.Name = "surnameLabel";
             this.surnameLabel.Size = new System.Drawing.Size(52, 13);
@@ -202,6 +212,7 @@ namespace ContactsAppUI
             // nameLabel
             // 
             this.nameLabel.AutoSize = true;
+            this.nameLabel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.nameLabel.Location = new System.Drawing.Point(227, 76);
             this.nameLabel.Name = "nameLabel";
             this.nameLabel.Size = new System.Drawing.Size(38, 13);
@@ -211,6 +222,7 @@ namespace ContactsAppUI
             // birthdayLabel
             // 
             this.birthdayLabel.AutoSize = true;
+            this.birthdayLabel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.birthdayLabel.Location = new System.Drawing.Point(217, 105);
             this.birthdayLabel.Name = "birthdayLabel";
             this.birthdayLabel.Size = new System.Drawing.Size(48, 13);
@@ -220,6 +232,7 @@ namespace ContactsAppUI
             // phoneLabel
             // 
             this.phoneLabel.AutoSize = true;
+            this.phoneLabel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.phoneLabel.Location = new System.Drawing.Point(224, 128);
             this.phoneLabel.Name = "phoneLabel";
             this.phoneLabel.Size = new System.Drawing.Size(41, 13);
@@ -229,6 +242,7 @@ namespace ContactsAppUI
             // emailLabel
             // 
             this.emailLabel.AutoSize = true;
+            this.emailLabel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.emailLabel.Location = new System.Drawing.Point(227, 154);
             this.emailLabel.Name = "emailLabel";
             this.emailLabel.Size = new System.Drawing.Size(38, 13);
@@ -238,6 +252,7 @@ namespace ContactsAppUI
             // vkLabel
             // 
             this.vkLabel.AutoSize = true;
+            this.vkLabel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.vkLabel.Location = new System.Drawing.Point(220, 180);
             this.vkLabel.Name = "vkLabel";
             this.vkLabel.Size = new System.Drawing.Size(45, 13);
@@ -248,26 +263,33 @@ namespace ContactsAppUI
             // 
             this.surnameBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.surnameBox.BackColor = System.Drawing.SystemColors.Window;
+            this.surnameBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.surnameBox.Location = new System.Drawing.Point(271, 47);
             this.surnameBox.Name = "surnameBox";
             this.surnameBox.ReadOnly = true;
             this.surnameBox.Size = new System.Drawing.Size(317, 20);
             this.surnameBox.TabIndex = 13;
+            this.surnameBox.TextChanged += new System.EventHandler(this.surnameBox_TextChanged);
             // 
             // nameBox
             // 
             this.nameBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.nameBox.BackColor = System.Drawing.SystemColors.Window;
+            this.nameBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.nameBox.Location = new System.Drawing.Point(271, 73);
             this.nameBox.Name = "nameBox";
             this.nameBox.ReadOnly = true;
             this.nameBox.Size = new System.Drawing.Size(317, 20);
             this.nameBox.TabIndex = 14;
+            this.nameBox.TextChanged += new System.EventHandler(this.nameBox_TextChanged);
             // 
             // birthdayDateTimePicker
             // 
             this.birthdayDateTimePicker.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.birthdayDateTimePicker.CalendarTrailingForeColor = System.Drawing.SystemColors.Desktop;
             this.birthdayDateTimePicker.Location = new System.Drawing.Point(271, 99);
             this.birthdayDateTimePicker.Name = "birthdayDateTimePicker";
             this.birthdayDateTimePicker.Size = new System.Drawing.Size(120, 20);
@@ -278,16 +300,22 @@ namespace ContactsAppUI
             // 
             this.phoneTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.phoneTextBox.BackColor = System.Drawing.SystemColors.Window;
+            this.phoneTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.phoneTextBox.Location = new System.Drawing.Point(271, 125);
+            this.phoneTextBox.MaxLength = 11;
             this.phoneTextBox.Name = "phoneTextBox";
             this.phoneTextBox.ReadOnly = true;
             this.phoneTextBox.Size = new System.Drawing.Size(317, 20);
             this.phoneTextBox.TabIndex = 16;
+            this.phoneTextBox.TextChanged += new System.EventHandler(this.phoneTextBox_TextChanged);
             // 
             // emailTextBox
             // 
             this.emailTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.emailTextBox.BackColor = System.Drawing.SystemColors.Window;
+            this.emailTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.emailTextBox.Location = new System.Drawing.Point(271, 151);
             this.emailTextBox.Name = "emailTextBox";
             this.emailTextBox.ReadOnly = true;
@@ -298,6 +326,8 @@ namespace ContactsAppUI
             // 
             this.vkTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.vkTextBox.BackColor = System.Drawing.SystemColors.Window;
+            this.vkTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.vkTextBox.Location = new System.Drawing.Point(271, 177);
             this.vkTextBox.Name = "vkTextBox";
             this.vkTextBox.ReadOnly = true;
@@ -328,6 +358,7 @@ namespace ContactsAppUI
             this.Controls.Add(this.editButton);
             this.Controls.Add(this.addButton);
             this.Controls.Add(this.menuStrip);
+            this.ForeColor = System.Drawing.SystemColors.Control;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "MainForm";
