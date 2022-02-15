@@ -87,7 +87,27 @@ namespace ContactsAppUI
 
             if (edited == true)
             {
-                
+                if (surnameListBox.SelectedItem == null)
+                {
+                    MessageBox.Show("Select contact");
+                    return;
+                }
+
+                int index = surnameListBox.SelectedIndex;
+                ContactForm contact = new ContactForm();
+                contact.Contact = (Contact)_contacts[index].Clone();
+                contact.ShowDialog();
+                if (contact.DialogResult == DialogResult.OK)
+                {
+                    var contactIndex = _project.Contacts.IndexOf(
+                        _contacts[index]);
+                    _project.Contacts[contactIndex]
+                        = (Contact)contact.Contact.Clone();
+                }
+                ProjectManager.SaveToFile(_project, ProjectManager.FileName);
+                surnameListBox.Items.Clear();
+                InsertToListBox();
+                index = _contacts.IndexOf(contact.Contact);
             }
             
         }
@@ -122,6 +142,20 @@ namespace ContactsAppUI
 
         }
 
+        private void findBox_TextChanged(object sender, EventArgs e)
+        {
+            _contacts = new List<Contact>();
+            string searchString = findBox.Text;
+            _contacts = _project.SearchContactByString(searchString);
+            surnameListBox.Items.Clear();
+            InsertToListBox();
+            if (_contacts.Count > 0)
+            {
+                surnameListBox.SelectedIndex = 0;
+                InputInformationOfContact(0);
+            }
+        }
+
         /// <summary>
         /// Выводит информацию о контакте по индексу
         /// </summary>
@@ -142,6 +176,18 @@ namespace ContactsAppUI
         {
             int index = surnameListBox.SelectedIndex;
             InputInformationOfContact(index);
+        }
+
+        private void birthdayDateTimePicker_ValueChanged(object sender, EventArgs e)
+        {
+            if (surnameListBox.SelectedIndex != -1)
+            {
+                birthdayDateTimePicker.Value = _contacts[surnameListBox.SelectedIndex].Birthday;
+            }
+            else
+            {
+                birthdayDateTimePicker.Value = DateTime.Now;
+            }
         }
     }
 }
