@@ -150,7 +150,7 @@ namespace ContactsApp
         public Contact(PhoneNumber phoneNumber, string surname, string name, string email, string vkId, DateTime birthday)
         {
             PhoneNumber = phoneNumber;
-            Surname = name;
+            Surname = surname;
             Name = name;
             Email = email;
             VKID = vkId;

@@ -91,7 +91,7 @@ namespace ContactsAppUI
                 surnameBox.Text = _contact.Surname;
                 nameBox.Text = _contact.Name;
                 birthdayDateTimePicker.Value = _contact.Birthday;
-                phoneBox.Text = _contact.PhoneNumber.ToString();
+                phoneBox.Text = _contact.PhoneNumber.Number.ToString();
                 emailBox.Text = _contact.Email;
                 vkBox.Text = _contact.VKID;
             }

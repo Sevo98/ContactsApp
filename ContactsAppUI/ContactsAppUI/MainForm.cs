@@ -81,7 +81,6 @@ namespace ContactsAppUI
                     _project.Contacts.Add(contactForm.Contact);
                     ProjectManager.SaveToFile(_project, ProjectManager.FileName);
                     _contacts = new List<Contact>();
-
                 }
             }
 
@@ -188,6 +187,35 @@ namespace ContactsAppUI
             {
                 birthdayDateTimePicker.Value = DateTime.Now;
             }
+        }
+
+        /// <summary>
+        /// Удаляет выбранный контакт
+        /// </summary>
+        private void DeleteContact()
+        {
+            if (surnameListBox.SelectedItem == null)
+            {
+                MessageBox.Show("Select contact!");
+                return;
+            }
+            int index = surnameListBox.SelectedIndex;
+            DialogResult result =
+                MessageBox.Show("Do you really want to remove this contact: " +
+                                $"{_contacts[index].Surname}",
+                    "Remove Contact", MessageBoxButtons.OKCancel);
+            if (result == DialogResult.OK)
+            {
+                _project.Contacts.RemoveAt(_project.Contacts.IndexOf(
+                    _contacts[index]));
+            }
+            ProjectManager.SaveToFile(_project, ProjectManager.FileName);
+            surnameListBox.Items.Clear();
+            InsertToListBox();
+        }
+        private void deleteUser_Click(object sender, EventArgs e)
+        {
+            DeleteContact();
         }
     }
 }

@@ -99,6 +99,7 @@ namespace ContactsAppUI
             this.deleteUser.Size = new System.Drawing.Size(32, 28);
             this.deleteUser.TabIndex = 2;
             this.deleteUser.UseVisualStyleBackColor = true;
+            this.deleteUser.Click += new System.EventHandler(this.deleteUser_Click);
             // 
             // menuStrip
             // 
