@@ -215,10 +215,31 @@ namespace ContactsAppUI
             ProjectManager.SaveToFile(_project, ProjectManager.FileName);
             surnameListBox.Items.Clear();
             InsertToListBox();
+            if (_contacts.Count > 0)
+            {
+                surnameListBox.SelectedIndex = 0;
+                InputInformationOfContact(0);
+            }
+            else
+            {
+                ClearInformationOfContact();
+            }
         }
         private void deleteUser_Click(object sender, EventArgs e)
         {
             DeleteContact();
+        }
+
+        /// <summary>
+        /// Чистит информацию во всех TextBox
+        /// </summary>
+        private void ClearInformationOfContact()
+        {
+            surnameBox.Text = "";
+            nameBox.Text = "";
+            phoneTextBox.Text = "";
+            vkTextBox.Text = "";
+            emailTextBox.Text = "";
         }
     }
 }
