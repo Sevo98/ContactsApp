@@ -48,7 +48,7 @@ namespace ContactsApp
             set
             {
                 CheckLength(value, 50);
-                _surname = value.ToUpper()[0] + value.Substring(1);
+                _surname = ChangeRegisterOfFirstSymbol(value);
             }
         }
 
@@ -63,7 +63,7 @@ namespace ContactsApp
             set
             {
                 CheckLength(value, 50);
-                _name = value.ToUpper()[0] + value.Substring(1);
+                _name = ChangeRegisterOfFirstSymbol(value);
             }
         }
 
@@ -131,6 +131,17 @@ namespace ContactsApp
             {
                 throw new ArgumentException("Переменная не может содержать больше " + permissibleLength + " символов!");
             }
+        }
+
+        private string ChangeRegisterOfFirstSymbol(string value)
+        {
+            if (value != "")
+            {
+                string newValue = value.ToUpper()[0] + value.Substring(1);
+                return newValue;
+            }
+
+            return value;
         }
 
         public Contact()
