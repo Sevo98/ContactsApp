@@ -40,7 +40,7 @@ namespace ContactsAppUI
         }
 
         private void InsertToListBox()
-        {
+        { 
             _contacts = new List<Contact>();
             _contacts = _project.SearchContactByString(findBox.Text);
             _contacts = _contacts.OrderBy(t => t.Surname).ToList();
@@ -80,7 +80,9 @@ namespace ContactsAppUI
                 {
                     _project.Contacts.Add(contactForm.Contact);
                     ProjectManager.SaveToFile(_project, ProjectManager.FileName);
-                    _contacts = new List<Contact>();
+                    _contacts = _project.Contacts;
+                    surnameListBox.Items.Clear();
+                    InsertToListBox();
                 }
             }
 
@@ -162,6 +164,7 @@ namespace ContactsAppUI
         private void InputInformationOfContact(int index)
         {
             if (index == -1) return;
+            
             var contact = _contacts[index];
             surnameBox.Text = contact.Surname;
             nameBox.Text = contact.Name;
