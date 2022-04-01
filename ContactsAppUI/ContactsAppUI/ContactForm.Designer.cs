@@ -48,7 +48,7 @@ namespace ContactsAppUI
             // vkLabel
             // 
             this.vkLabel.AutoSize = true;
-            this.vkLabel.Location = new System.Drawing.Point(19, 139);
+            this.vkLabel.Location = new System.Drawing.Point(19, 113);
             this.vkLabel.Name = "vkLabel";
             this.vkLabel.Size = new System.Drawing.Size(45, 13);
             this.vkLabel.TabIndex = 18;
@@ -57,7 +57,7 @@ namespace ContactsAppUI
             // emailLabel
             // 
             this.emailLabel.AutoSize = true;
-            this.emailLabel.Location = new System.Drawing.Point(26, 113);
+            this.emailLabel.Location = new System.Drawing.Point(26, 87);
             this.emailLabel.Name = "emailLabel";
             this.emailLabel.Size = new System.Drawing.Size(38, 13);
             this.emailLabel.TabIndex = 17;
@@ -66,7 +66,7 @@ namespace ContactsAppUI
             // phoneLabel
             // 
             this.phoneLabel.AutoSize = true;
-            this.phoneLabel.Location = new System.Drawing.Point(23, 87);
+            this.phoneLabel.Location = new System.Drawing.Point(23, 61);
             this.phoneLabel.Name = "phoneLabel";
             this.phoneLabel.Size = new System.Drawing.Size(41, 13);
             this.phoneLabel.TabIndex = 16;
@@ -75,7 +75,7 @@ namespace ContactsAppUI
             // birthdayLabel
             // 
             this.birthdayLabel.AutoSize = true;
-            this.birthdayLabel.Location = new System.Drawing.Point(16, 64);
+            this.birthdayLabel.Location = new System.Drawing.Point(16, 136);
             this.birthdayLabel.Name = "birthdayLabel";
             this.birthdayLabel.Size = new System.Drawing.Size(48, 13);
             this.birthdayLabel.TabIndex = 15;
@@ -124,7 +124,7 @@ namespace ContactsAppUI
             this.birthdayDateTimePicker.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.birthdayDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.birthdayDateTimePicker.Location = new System.Drawing.Point(70, 58);
+            this.birthdayDateTimePicker.Location = new System.Drawing.Point(70, 136);
             this.birthdayDateTimePicker.MinDate = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
             this.birthdayDateTimePicker.Name = "birthdayDateTimePicker";
             this.birthdayDateTimePicker.Size = new System.Drawing.Size(92, 20);
@@ -136,7 +136,7 @@ namespace ContactsAppUI
             // 
             this.phoneBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.phoneBox.Location = new System.Drawing.Point(70, 84);
+            this.phoneBox.Location = new System.Drawing.Point(70, 58);
             this.phoneBox.MaxLength = 11;
             this.phoneBox.Name = "phoneBox";
             this.phoneBox.Size = new System.Drawing.Size(352, 20);
@@ -147,7 +147,7 @@ namespace ContactsAppUI
             // 
             this.emailBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.emailBox.Location = new System.Drawing.Point(70, 110);
+            this.emailBox.Location = new System.Drawing.Point(70, 84);
             this.emailBox.Name = "emailBox";
             this.emailBox.Size = new System.Drawing.Size(352, 20);
             this.emailBox.TabIndex = 23;
@@ -157,7 +157,7 @@ namespace ContactsAppUI
             // 
             this.vkBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.vkBox.Location = new System.Drawing.Point(70, 136);
+            this.vkBox.Location = new System.Drawing.Point(70, 110);
             this.vkBox.Name = "vkBox";
             this.vkBox.Size = new System.Drawing.Size(352, 20);
             this.vkBox.TabIndex = 24;
@@ -177,7 +177,7 @@ namespace ContactsAppUI
             // cancelButton
             // 
             this.cancelButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.cancelButton.Location = new System.Drawing.Point(347, 162);
+            this.cancelButton.Location = new System.Drawing.Point(93, 162);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(75, 23);
             this.cancelButton.TabIndex = 26;
@@ -207,6 +207,8 @@ namespace ContactsAppUI
             this.MaximumSize = new System.Drawing.Size(450, 229);
             this.MinimumSize = new System.Drawing.Size(450, 229);
             this.Name = "ContactForm";
+            this.ShowIcon = false;
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.Text = "Add/Edit Contact";
             this.Load += new System.EventHandler(this.ContactForm_Load);
             this.ResumeLayout(false);
