@@ -16,7 +16,8 @@ namespace ContactsAppUI
         /// <summary>
         /// Объект класса Project
         /// </summary>
-        private Project _project = ProjectManager.LoadFromFile(ProjectManager.MyPath, ProjectManager.FileName);
+        private Project _project = ProjectManager.LoadFromFile
+            (ProjectManager.MyPath, ProjectManager.FileName);
 
         /// <summary>
         /// Список контактов
@@ -126,21 +127,6 @@ namespace ContactsAppUI
         private void editButton_Click(object sender, EventArgs e)
         {
             openAddEditForm(true);
-        }
-
-        private void nameBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void surnameBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void phoneTextBox_TextChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void findBox_TextChanged(object sender, EventArgs e)

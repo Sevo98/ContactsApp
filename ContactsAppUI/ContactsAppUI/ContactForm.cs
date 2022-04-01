@@ -20,6 +20,9 @@ namespace ContactsAppUI
             InitializeComponent();
         }
 
+        private Color successColor = Color.White;
+        private Color errorColor = Color.Brown;
+
         public Contact Contact
         {
             get { return _contact; }
@@ -33,7 +36,9 @@ namespace ContactsAppUI
 
         private void cancelButton_Click(object sender, EventArgs e)
         {
-            DialogResult dialogResult = MessageBox.Show("Do you want close this form? Data will not save.", "Warning", MessageBoxButtons.YesNo);
+            DialogResult dialogResult = MessageBox.Show
+            ("Do you want close this form? Data will not save.",
+                "Warning", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
                 DialogResult = DialogResult.Cancel;
@@ -45,34 +50,34 @@ namespace ContactsAppUI
         {
             string inputError = "Error list:\n";
 
-            if ((surnameBox.BackColor == Color.Brown) || (surnameBox.Text == ""))
+            if ((surnameBox.BackColor == errorColor) || (surnameBox.Text == ""))
             {
-                inputError = inputError + "incorrect surname.\n";
+                inputError += "incorrect surname.\n";
             }
 
-            if ((nameBox.BackColor == Color.Brown) || (nameBox.Text == ""))
+            if ((nameBox.BackColor == errorColor) || (nameBox.Text == ""))
             {
-                inputError = inputError + "incorrect name.\n";
+                inputError += "incorrect name.\n";
             }
 
-            if (birthdayDateTimePicker.BackColor == Color.Brown)
+            if (birthdayDateTimePicker.BackColor == errorColor)
             {
-                inputError = inputError + "incorrect date.\n";
+                inputError += "incorrect date.\n";
             }
 
-            if ((phoneBox.BackColor == Color.Brown) || (phoneBox.Text == ""))
+            if ((phoneBox.BackColor == errorColor) || (phoneBox.Text == ""))
             {
-                inputError = inputError + "incorrect phone.\n";
+                inputError += "incorrect phone.\n";
             }
 
-            if ((emailBox.BackColor == Color.Brown) || (emailBox.Text == ""))
+            if ((emailBox.BackColor == errorColor) || (emailBox.Text == ""))
             {
-                inputError = inputError + "incorrect e-mail.\n";
+                inputError += "incorrect e-mail.\n";
             }
 
-            if ((vkBox.BackColor == Color.Brown) || (vkBox.Text == ""))
+            if ((vkBox.BackColor == errorColor) || (vkBox.Text == ""))
             {
-                inputError = inputError + "incorrect vk.com.";
+                inputError += "incorrect vk.com.";
             }
 
             if (inputError != "Error list:\n")
@@ -105,7 +110,7 @@ namespace ContactsAppUI
 
         private void surnameBox_TextChanged(object sender, EventArgs e)
         {
-            surnameBox.BackColor = Color.LightGreen;
+            surnameBox.BackColor = successColor;
             try
             {
                 _contact.Surname = surnameBox.Text;
@@ -113,13 +118,13 @@ namespace ContactsAppUI
             catch (ArgumentException exception)
             {
                 Console.WriteLine(exception);
-                surnameBox.BackColor = Color.Brown;
+                surnameBox.BackColor = errorColor;
             }
         }
 
         private void nameBox_TextChanged(object sender, EventArgs e)
         {
-            nameBox.BackColor = Color.LightGreen;
+            nameBox.BackColor = successColor;
             try
             {
                 _contact.Name = nameBox.Text;
@@ -127,13 +132,13 @@ namespace ContactsAppUI
             catch (ArgumentException exception)
             {
                 Console.WriteLine(exception);
-                nameBox.BackColor = Color.Brown;
+                nameBox.BackColor = errorColor;
             }
         }
 
         private void birthdayDateTimePicker_ValueChanged(object sender, EventArgs e)
         {
-            birthdayDateTimePicker.BackColor = Color.LightGreen;
+            birthdayDateTimePicker.BackColor = successColor;
             try
             {
                 _contact.Birthday = birthdayDateTimePicker.Value;
@@ -141,14 +146,14 @@ namespace ContactsAppUI
             catch (ArgumentException exception)
             {
                 Console.WriteLine(exception);
-                birthdayDateTimePicker.BackColor = Color.Brown;
+                birthdayDateTimePicker.BackColor = errorColor;
                 birthdayDateTimePicker.Invalidate();
             }
         }
 
         private void phoneTextBox_TextChanged(object sender, EventArgs e)
         {
-            phoneBox.BackColor = Color.LightGreen;
+            phoneBox.BackColor = successColor;
             if ((phoneBox.Text.All(char.IsDigit)) && (phoneBox.Text != ""))
             {
                 try
@@ -160,18 +165,18 @@ namespace ContactsAppUI
                 catch (ArgumentException exception)
                 {
                     Console.WriteLine(exception);
-                    phoneBox.BackColor = Color.Brown;
+                    phoneBox.BackColor = errorColor;
                 }
             }
             else
             {
-                phoneBox.BackColor = Color.Brown;
+                phoneBox.BackColor = errorColor;
             }
         }
 
         private void emailTextBox_TextChanged(object sender, EventArgs e)
         {
-            emailBox.BackColor = Color.LightGreen;
+            emailBox.BackColor = successColor;
             try
             {
                 _contact.Email = emailBox.Text;
@@ -179,13 +184,13 @@ namespace ContactsAppUI
             catch (ArgumentException exception)
             {
                 Console.WriteLine(exception);
-                emailBox.BackColor = Color.Brown;
+                emailBox.BackColor = errorColor;
             }
         }
 
         private void vkTextBox_TextChanged(object sender, EventArgs e)
         {
-            vkBox.BackColor = Color.LightGreen;
+            vkBox.BackColor = successColor;
             try
             {
                 _contact.VKID = vkBox.Text;
@@ -193,7 +198,7 @@ namespace ContactsAppUI
             catch (ArgumentException exception)
             {
                 Console.WriteLine(exception);
-                vkBox.BackColor = Color.Brown;
+                vkBox.BackColor = errorColor;
             }
         }
     }
