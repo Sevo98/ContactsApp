@@ -34,6 +34,25 @@ namespace ContactsAppUI
             }
         }
 
+        private void ContactForm_Load(object sender, EventArgs e)
+        {
+            if (_contact != null)
+            {
+                surnameBox.Text = _contact.Surname;
+                nameBox.Text = _contact.Name;
+                birthdayDateTimePicker.Value = _contact.Birthday;
+                phoneBox.Text = _contact.PhoneNumber.Number.ToString();
+                emailBox.Text = _contact.Email;
+                vkBox.Text = _contact.VKID;
+            }
+            else
+            {
+                _contact = new Contact();
+                _contact.Birthday = DateTime.Now;
+                birthdayDateTimePicker.Value = DateTime.Now;
+            }
+        }
+
         private void cancelButton_Click(object sender, EventArgs e)
         {
             DialogResult dialogResult = MessageBox.Show
@@ -46,6 +65,12 @@ namespace ContactsAppUI
             }
         }
 
+        /// <summary>
+        /// При нажатии на кнопку ОК проходит првоерка на корректность введенных данных
+        /// В случае наличия неправильных данных появляется окно со списком ошибок
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void okButton_Click(object sender, EventArgs e)
         {
             string inputError = "Error list:\n";
@@ -87,25 +112,6 @@ namespace ContactsAppUI
             }
             DialogResult = DialogResult.OK;
             this.Close();
-        }
-
-        private void ContactForm_Load(object sender, EventArgs e)
-        {
-            if (_contact != null)
-            {
-                surnameBox.Text = _contact.Surname;
-                nameBox.Text = _contact.Name;
-                birthdayDateTimePicker.Value = _contact.Birthday;
-                phoneBox.Text = _contact.PhoneNumber.Number.ToString();
-                emailBox.Text = _contact.Email;
-                vkBox.Text = _contact.VKID;
-            }
-            else
-            {
-                _contact = new Contact();
-                _contact.Birthday = DateTime.Now;
-                birthdayDateTimePicker.Value = DateTime.Now;
-            }
         }
 
         private void surnameBox_TextChanged(object sender, EventArgs e)
