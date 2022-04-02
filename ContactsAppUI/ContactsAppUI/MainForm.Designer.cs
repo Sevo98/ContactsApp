@@ -66,7 +66,7 @@ namespace ContactsAppUI
             this.editButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.editButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.editButton.Image = global::ContactsAppUI.Properties.Resources.ASX_Edit_grey_16x;
-            this.editButton.Location = new System.Drawing.Point(83, 331);
+            this.editButton.Location = new System.Drawing.Point(34, 331);
             this.editButton.Name = "editButton";
             this.editButton.Size = new System.Drawing.Size(24, 23);
             this.editButton.TabIndex = 1;
@@ -79,7 +79,7 @@ namespace ContactsAppUI
             this.addButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.addButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.addButton.Image = global::ContactsAppUI.Properties.Resources.AddUser_16x;
-            this.addButton.Location = new System.Drawing.Point(53, 331);
+            this.addButton.Location = new System.Drawing.Point(4, 331);
             this.addButton.Name = "addButton";
             this.addButton.Size = new System.Drawing.Size(24, 23);
             this.addButton.TabIndex = 0;
@@ -92,7 +92,7 @@ namespace ContactsAppUI
             this.deleteUser.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.deleteUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.deleteUser.Image = global::ContactsAppUI.Properties.Resources.DeleteUser_16x;
-            this.deleteUser.Location = new System.Drawing.Point(113, 331);
+            this.deleteUser.Location = new System.Drawing.Point(64, 331);
             this.deleteUser.Name = "deleteUser";
             this.deleteUser.Size = new System.Drawing.Size(24, 23);
             this.deleteUser.TabIndex = 2;
@@ -196,9 +196,10 @@ namespace ContactsAppUI
             this.surnameListBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.surnameListBox.FormattingEnabled = true;
+            this.surnameListBox.IntegralHeight = false;
             this.surnameListBox.Location = new System.Drawing.Point(4, 47);
             this.surnameListBox.Name = "surnameListBox";
-            this.surnameListBox.Size = new System.Drawing.Size(192, 251);
+            this.surnameListBox.Size = new System.Drawing.Size(192, 278);
             this.surnameListBox.TabIndex = 6;
             this.surnameListBox.Click += new System.EventHandler(this.surnameListBox_Click);
             // 
@@ -226,7 +227,7 @@ namespace ContactsAppUI
             // 
             this.birthdayLabel.AutoSize = true;
             this.birthdayLabel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.birthdayLabel.Location = new System.Drawing.Point(217, 177);
+            this.birthdayLabel.Location = new System.Drawing.Point(217, 179);
             this.birthdayLabel.Name = "birthdayLabel";
             this.birthdayLabel.Size = new System.Drawing.Size(48, 13);
             this.birthdayLabel.TabIndex = 9;
@@ -363,7 +364,7 @@ namespace ContactsAppUI
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.MainMenuStrip = this.menuStrip;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MinimumSize = new System.Drawing.Size(616, 405);
             this.Name = "MainForm";
             this.Text = "ContactsApp";

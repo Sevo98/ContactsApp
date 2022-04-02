@@ -75,7 +75,7 @@ namespace ContactsAppUI
             // birthdayLabel
             // 
             this.birthdayLabel.AutoSize = true;
-            this.birthdayLabel.Location = new System.Drawing.Point(16, 136);
+            this.birthdayLabel.Location = new System.Drawing.Point(16, 139);
             this.birthdayLabel.Name = "birthdayLabel";
             this.birthdayLabel.Size = new System.Drawing.Size(48, 13);
             this.birthdayLabel.TabIndex = 15;
@@ -127,7 +127,7 @@ namespace ContactsAppUI
             this.birthdayDateTimePicker.Location = new System.Drawing.Point(70, 136);
             this.birthdayDateTimePicker.MinDate = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
             this.birthdayDateTimePicker.Name = "birthdayDateTimePicker";
-            this.birthdayDateTimePicker.Size = new System.Drawing.Size(92, 20);
+            this.birthdayDateTimePicker.Size = new System.Drawing.Size(107, 20);
             this.birthdayDateTimePicker.TabIndex = 21;
             this.birthdayDateTimePicker.Value = new System.DateTime(2021, 6, 1, 0, 0, 0, 0);
             this.birthdayDateTimePicker.ValueChanged += new System.EventHandler(this.birthdayDateTimePicker_ValueChanged);
@@ -166,7 +166,7 @@ namespace ContactsAppUI
             // okButton
             // 
             this.okButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.okButton.Location = new System.Drawing.Point(12, 162);
+            this.okButton.Location = new System.Drawing.Point(266, 162);
             this.okButton.Name = "okButton";
             this.okButton.Size = new System.Drawing.Size(75, 23);
             this.okButton.TabIndex = 25;
@@ -177,7 +177,7 @@ namespace ContactsAppUI
             // cancelButton
             // 
             this.cancelButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.cancelButton.Location = new System.Drawing.Point(93, 162);
+            this.cancelButton.Location = new System.Drawing.Point(347, 162);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(75, 23);
             this.cancelButton.TabIndex = 26;
@@ -189,7 +189,7 @@ namespace ContactsAppUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(434, 190);
+            this.ClientSize = new System.Drawing.Size(434, 197);
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.okButton);
             this.Controls.Add(this.vkBox);
@@ -204,8 +204,8 @@ namespace ContactsAppUI
             this.Controls.Add(this.birthdayLabel);
             this.Controls.Add(this.nameLabel);
             this.Controls.Add(this.surnameLabel);
-            this.MaximumSize = new System.Drawing.Size(450, 229);
-            this.MinimumSize = new System.Drawing.Size(450, 229);
+            this.MaximumSize = new System.Drawing.Size(450, 236);
+            this.MinimumSize = new System.Drawing.Size(450, 236);
             this.Name = "ContactForm";
             this.ShowIcon = false;
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;

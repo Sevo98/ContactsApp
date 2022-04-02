@@ -169,7 +169,6 @@ namespace ContactsAppUI
             ProjectManager.SaveToFile(_project, ProjectManager.FileName);
             surnameListBox.Items.Clear();
             InsertToListBox();
-            index = _contacts.IndexOf(contact.Contact);
         }
 
         private void birthdayDateTimePicker_ValueChanged(object sender, EventArgs e)
