@@ -38,6 +38,7 @@ namespace ContactsAppUI
                 surnameListBox.SelectedIndex = 0;
                 InputInformationOfContact(0);
             }
+            SearchBirthdaySurnames();
         }
 
         /// <summary>
@@ -104,6 +105,8 @@ namespace ContactsAppUI
             {
                 ClearInformationOfContact();
             }
+
+            SearchBirthdaySurnames();
         }
         
         /// <summary>
@@ -145,6 +148,7 @@ namespace ContactsAppUI
                 surnameListBox.Items.Clear();
                 InsertToListBox();
             }
+            SearchBirthdaySurnames();
         }
 
         private void OpenEditForm()
@@ -169,6 +173,7 @@ namespace ContactsAppUI
             ProjectManager.SaveToFile(_project, ProjectManager.FileName);
             surnameListBox.Items.Clear();
             InsertToListBox();
+            SearchBirthdaySurnames();
         }
 
         private void birthdayDateTimePicker_ValueChanged(object sender, EventArgs e)
@@ -180,6 +185,22 @@ namespace ContactsAppUI
             else
             {
                 birthdayDateTimePicker.Value = DateTime.Now;
+            }
+        }
+
+        /// <summary>
+        /// находит контакты у которых сегодня день рождения 
+        /// </summary>
+        void SearchBirthdaySurnames()
+        {
+            surnameBLabel.Text = "";
+            surnameBLabel.Text = _project.SearchSurnamesByBirthday(_contacts);
+            if (surnameBLabel.Text != "")
+            {
+                panelBirthday.Visible = true;
+            } else if (surnameBLabel.Text == "")
+            {
+                panelBirthday.Visible = false;
             }
         }
 

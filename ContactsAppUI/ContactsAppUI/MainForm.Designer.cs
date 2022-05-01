@@ -57,7 +57,13 @@ namespace ContactsAppUI
             this.phoneTextBox = new System.Windows.Forms.TextBox();
             this.emailTextBox = new System.Windows.Forms.TextBox();
             this.vkTextBox = new System.Windows.Forms.TextBox();
+            this.panelBirthday = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.todayLabel = new System.Windows.Forms.Label();
+            this.surnameBLabel = new System.Windows.Forms.Label();
             this.menuStrip.SuspendLayout();
+            this.panelBirthday.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // editButton
@@ -336,11 +342,55 @@ namespace ContactsAppUI
             this.vkTextBox.Size = new System.Drawing.Size(317, 20);
             this.vkTextBox.TabIndex = 18;
             // 
+            // panelBirthday
+            // 
+            this.panelBirthday.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panelBirthday.Controls.Add(this.surnameBLabel);
+            this.panelBirthday.Controls.Add(this.todayLabel);
+            this.panelBirthday.Controls.Add(this.pictureBox1);
+            this.panelBirthday.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.panelBirthday.Location = new System.Drawing.Point(202, 254);
+            this.panelBirthday.Name = "panelBirthday";
+            this.panelBirthday.Size = new System.Drawing.Size(386, 100);
+            this.panelBirthday.TabIndex = 19;
+            this.panelBirthday.Visible = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(3, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(100, 94);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
+            // todayLabel
+            // 
+            this.todayLabel.AutoSize = true;
+            this.todayLabel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.todayLabel.Location = new System.Drawing.Point(109, 13);
+            this.todayLabel.Name = "todayLabel";
+            this.todayLabel.Size = new System.Drawing.Size(90, 13);
+            this.todayLabel.TabIndex = 1;
+            this.todayLabel.Text = "Today birthday is:";
+            // 
+            // surnameBLabel
+            // 
+            this.surnameBLabel.AutoSize = true;
+            this.surnameBLabel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.surnameBLabel.Location = new System.Drawing.Point(111, 34);
+            this.surnameBLabel.Name = "surnameBLabel";
+            this.surnameBLabel.Size = new System.Drawing.Size(47, 13);
+            this.surnameBLabel.TabIndex = 2;
+            this.surnameBLabel.Text = "surname";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(600, 366);
+            this.Controls.Add(this.panelBirthday);
             this.Controls.Add(this.vkTextBox);
             this.Controls.Add(this.emailTextBox);
             this.Controls.Add(this.phoneTextBox);
@@ -371,6 +421,9 @@ namespace ContactsAppUI
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
+            this.panelBirthday.ResumeLayout(false);
+            this.panelBirthday.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -405,6 +458,10 @@ namespace ContactsAppUI
         private System.Windows.Forms.ToolStripMenuItem removeContactToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.TextBox vkTextBox;
+        private System.Windows.Forms.Panel panelBirthday;
+        private System.Windows.Forms.Label surnameBLabel;
+        private System.Windows.Forms.Label todayLabel;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 
